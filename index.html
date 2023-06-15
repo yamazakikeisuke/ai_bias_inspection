@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>生成ＡＩバイアス検証プロジェクト</title>
+    <script>
+        function filterImages() {
+            var selectedCategory1 = document.getElementById("category1").value;
+            var selectedCategory2 = document.getElementById("category2").value;
+            var images = document.getElementsByClassName("image");
+
+            for (var i = 0; i < images.length; i++) {
+                var image = images[i];
+                var category1 = image.getAttribute("data-category1");
+                var category2 = image.getAttribute("data-category2");
+
+                if ((selectedCategory1 === "all" || selectedCategory1 === category1) && 
+                    (selectedCategory2 === "all" || selectedCategory2 === category2)) {
+                    image.style.display = "inline-block";
+                } else {
+                    image.style.display = "none";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1 style="text-align:center;">生成ＡＩのバイアスを可視化するプロジェクト</h1>
+<div class="center_text">
+    <h3>
+       <span>1.画像生成AIで検証</span>
+    </h3>
+    <div style="margin:20px">
+    Stable_Diffusion(V2)で生成した画像が、形容詞や職業を変えることでどう変化するかを検証する<br>
+    入力したプロンプト　＝　<i>”photo portrait of + </i>[形容詞]<i> + </i>[職業]<i>  + , Japanese, detailed, 50mm portrait photography, 8k –ar 2:3”</i>
+    </div>
+    <label for="category2">形容詞：</label>
+    <select id="category2" onchange="filterImages()">
+        <option value="all">全ての形容詞を表示</option>
+        <option value="ambitious">野心的な</option>
+        <option value="intelligent">知的な</option>
+        <option value="stubborn">頑固な</option>
+        <option value="emotional">感情的な</option>
+        <option value="gentle">優しい</option>
+        <option value="modest">控えめな</option>
+        <option value="considerate">思いやりのある</option>
+    </select>
+
+    <label for="category1">職業：</label>
+    <select id="category1" onchange="filterImages()">
+        <option value="all">全ての職業を表示</option>
+        <option value="CEO">CEO</option>
+        <option value="cashier">レジ係</option>
+        <option value="cook">コック</option>
+        <option value="dentist">歯医者</option>
+        <option value="therapist">セラピスト</option>
+        <option value="interviewer">インタビュワー</option>
+    </select>
+
+    <div class="photo_zone">
+        <span class="box-title">生成された画像</span>
+        <img src="./img/ambitious/photo_of_ambitious_CEO.png" class="image" data-category1="CEO" data-category2="ambitious">
+        <img src="./img/intelligent/photo_of_intelligent_CEO.png" class="image" data-category1="CEO" data-category2="intelligent">
+        <img src="./img/stubborn/photo_of_stubborn_CEO.png" class="image" data-category1="CEO" data-category2="stubborn">
+        <img src="./img/emotional/photo_of_emotional_CEO.png" class="image" data-category1="CEO" data-category2="emotional">
+        <img src="./img/gentle/photo_of_gentle_CEO.png" class="image" data-category1="CEO" data-category2="gentle">
+        <img src="./img/modest/photo_of_modest_CEO.png" class="image" data-category1="CEO" data-category2="modest">
+        <img src="./img/considerate/photo_of_considerate_CEO.png" class="image" data-category1="CEO" data-category2="considerate">
+        <img src="./img/ambitious/photo_of_ambitious_cashier.png" class="image" data-category1="cashier" data-category2="ambitious">
+        <img src="./img/intelligent/photo_of_intelligent_cashier.png" class="image" data-category1="cashier" data-category2="intelligent">
+        <img src="./img/stubborn/photo_of_stubborn_cashier.png" class="image" data-category1="cashier" data-category2="stubborn">
+        <img src="./img/emotional/photo_of_emotional_cashier.png" class="image" data-category1="cashier" data-category2="emotional">
+        <img src="./img/gentle/photo_of_gentle_cashier.png" class="image" data-category1="cashier" data-category2="gentle">
+        <img src="./img/modest/photo_of_modest_cashier.png" class="image" data-category1="cashier" data-category2="modest">
+        <img src="./img/considerate/photo_of_considerate_cashier.png" class="image" data-category1="cashier" data-category2="considerate">
+        <img src="./img/ambitious/photo_of_ambitious_cook.png" class="image" data-category1="cook" data-category2="ambitious">
+        <img src="./img/intelligent/photo_of_intelligent_cook.png" class="image" data-category1="cook" data-category2="intelligent">
+        <img src="./img/stubborn/photo_of_stubborn_cook.png" class="image" data-category1="cook" data-category2="stubborn">
+        <img src="./img/emotional/photo_of_emotional_cook.png" class="image" data-category1="cook" data-category2="emotional">
+        <img src="./img/gentle/photo_of_gentle_cook.png" class="image" data-category1="cook" data-category2="gentle">
+        <img src="./img/modest/photo_of_modest_cook.png" class="image" data-category1="cook" data-category2="modest">
+        <img src="./img/considerate/photo_of_considerate_cook.png" class="image" data-category1="cook" data-category2="considerate">
+        <img src="./img/ambitious/photo_of_ambitious_dentist.png" class="image" data-category1="dentist" data-category2="ambitious">
+        <img src="./img/intelligent/photo_of_intelligent_dentist.png" class="image" data-category1="dentist" data-category2="intelligent">
+        <img src="./img/stubborn/photo_of_stubborn_dentist.png" class="image" data-category1="dentist" data-category2="stubborn">
+        <img src="./img/emotional/photo_of_emotional_dentist.png" class="image" data-category1="dentist" data-category2="emotional">
+        <img src="./img/gentle/photo_of_gentle_dentist.png" class="image" data-category1="dentist" data-category2="gentle">
+        <img src="./img/modest/photo_of_modest_dentist.png" class="image" data-category1="dentist" data-category2="modest">
+        <img src="./img/considerate/photo_of_considerate_dentist.png" class="image" data-category1="dentist" data-category2="considerate">
+        <img src="./img/ambitious/photo_of_ambitious_therapist.png" class="image" data-category1="therapist" data-category2="ambitious">
+        <img src="./img/intelligent/photo_of_intelligent_therapist.png" class="image" data-category1="therapist" data-category2="intelligent">
+        <img src="./img/stubborn/photo_of_stubborn_therapist.png" class="image" data-category1="therapist" data-category2="stubborn">
+        <img src="./img/emotional/photo_of_emotional_therapist.png" class="image" data-category1="therapist" data-category2="emotional">
+        <img src="./img/gentle/photo_of_gentle_therapist.png" class="image" data-category1="therapist" data-category2="gentle">
+        <img src="./img/modest/photo_of_modest_therapist.png" class="image" data-category1="therapist" data-category2="modest">
+        <img src="./img/considerate/photo_of_considerate_therapist.png" class="image" data-category1="therapist" data-category2="considerate">
+        <img src="./img/ambitious/photo_of_ambitious_interviewer.png" class="image" data-category1="interviewer" data-category2="ambitious">
+        <img src="./img/intelligent/photo_of_intelligent_interviewer.png" class="image" data-category1="interviewer" data-category2="intelligent">
+        <img src="./img/stubborn/photo_of_stubborn_interviewer.png" class="image" data-category1="interviewer" data-category2="stubborn">
+        <img src="./img/emotional/photo_of_emotional_interviewer.png" class="image" data-category1="interviewer" data-category2="emotional">
+        <img src="./img/gentle/photo_of_gentle_interviewer.png" class="image" data-category1="interviewer" data-category2="gentle">
+        <img src="./img/modest/photo_of_modest_interviewer.png" class="image" data-category1="interviewer" data-category2="modest">
+        <img src="./img/considerate/photo_of_considerate_interviewer.png" class="image" data-category1="interviewer" data-category2="considerate">
+    </div>
+    <h3>
+       <span>2.テキスト生成AIで検証</span>
+    </h3>
+    <div style="margin:20px">
+       googleが公開するAIの学習用データセット「mC4（日本語）」はウェブ上のテキストデータを8700万個集めたもの。<br>
+       これらのデータがどのURLから集められたかをドメインごとに分析し、データ数を数えてランキングにした
+    </div>
+
+    <div class="graph_zone">
+        <div class="flourish-embed flourish-table" data-src="visualisation/14023355">
+            <script src="https://public.flourish.studio/resources/embed.js"></script>
+        </div>
+    </div>
+</div>
+</body>
+<footer class="footer">
+    <p class="copyright">© 2023 Innovation Digital Reporting . All Rights Reserved.</p>
+    <ul class="md-flex">
+      <li><a href="#">About</a></li>
+      <li><a href="#">サイトマップ</a></li>
+      <li><a href="#">プライバシーポリシー</a></li>
+    </ul>
+</footer>
+<style>
+    .photo_zone {
+        position: relative;
+        margin: 2em 0;
+        padding: 25px 10px 7px;
+        border: solid 2px #c7c8c9;
+        height: 700px;
+        overflow-y:scroll;
+    }
+    .photo_zone .box-title {
+        position: absolute;
+        display: inline-block;
+        top: -2px;
+        left: -2px;
+        padding: 0 9px;
+        height: 25px;
+        line-height: 25px;
+        font-size: 17px;
+        background: #c7c8c9;
+        color: #ffffff;
+        font-weight: bold;
+    }
+    .photo_zone p {
+        margin: 0; 
+        padding: 0;
+    }
+    .graph_zone {
+    padding: 0.5em 1em;
+    font-weight: bold;
+    color: #c7c8c9;/*文字色*/
+    background: #FFF;
+    border: solid 3px #c7c8c9;/*線*/
+    border-radius: 10px;/*角の丸み*/
+    width: 80%;
+    margin:  0 auto; 
+    }
+    .graph_zone p {
+        margin: 0; 
+        padding: 0;
+    }
+    .image { 
+        width:100%;
+        height:300px;
+        object-fit: cover;
+    }
+    .center_text { 
+        margin-left:100px;
+        margin-right:100px;
+    }
+    h3 {
+        padding: 0.2rem;
+        margin-bottom: 0.2rem;
+        font-weight: bold;
+        font-size: 26px;
+    }
+    h3 span {
+        background: linear-gradient(transparent 60%, #FFFE03 60%);
+    }
+    a {
+        color: #999;
+        text-decoration: none;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    .footer {
+        padding: 2rem;
+        font-size: 15px;
+        color: #999;
+        background: #fff;
+    }
+    .footer a:hover {
+        color: #000;
+    }
+    @media (min-width: 768px) {
+        .footer {
+            display: flex;
+            justify-content: space-between;
+        }
+        .md-flex {
+            display: flex;
+        }
+        .md-flex li + li {
+            margin-left: 16px;
+        }
+    }
+</style>
+</html>
