@@ -7,3 +7,6 @@ Stable_Diffusion(V2)で生成した画像が、形容詞や職業を変えるこ
 2.テキスト生成AIで検証<br>
 googleが公開するAIの学習用データセット「mC4（日本語）」はウェブ上のテキストデータを8700万個集めたもの。<br>
 これらのデータがどのURLから集められたかをドメインごとに分析し、データ数を数えてランキングにした
+
+【サイト】
+https://yamazakikeisuke.github.io/ai_bias_inspection/
